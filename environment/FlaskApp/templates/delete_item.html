@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Item</title>
+    <style>
+        /* Define CSS styles for the pink strip */
+        .pink-strip {
+            background-color: #ffb6c1; /* Set baby pink background color */
+            color: #fff; /* Set text color to white */
+            padding: 20px 0; /* Add padding to the top and bottom */
+            margin-bottom: 20px; /* Add margin to separate from other content */
+            text-align: center; /* Center-align the content */
+        }
+
+        /* Define CSS styles for the heading */
+        .pink-strip h1 {
+            font-family: Arial, sans-serif; /* Change the font family */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Define CSS styles for the button */
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #ffb6c1; /* Set baby pink background color */
+            color: #fff; /* Set text color to white */
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Style the button on hover */
+        .back-button:hover {
+            background-color: #ff8080; /* Light pink color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="pink-strip">
+        <h1>Delete Item</h1>
+    </div>
+    {% if error_message %}
+    <p style="color: red; text-align: center;">{{ error_message }}</p>
+    {% endif %}
+    {% if success_message %}
+    <p style="color: green; text-align: center;">{{ success_message }}</p>
+    {% endif %}
+    <form action="/delete" method="post">
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br><br>
+        <button type="submit">Delete</button>
+    </form>
+    <!-- Button to go back to the homepage -->
+    <a href="/homepage" class="back-button">Back to Homepage</a>
+</body>
+</html>

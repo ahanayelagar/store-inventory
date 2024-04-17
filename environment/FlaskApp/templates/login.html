@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Set background color */
+            color: #333; /* Set text color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center; /* Center-align the content */
+        }
+        h1 {
+            background-color: #ffb6c1; /* Set pink strip background color */
+            color: #fff; /* Set text color to white */
+            padding: 20px 0; /* Add padding to the top and bottom */
+            margin-bottom: 20px; /* Add margin to separate from other content */
+        }
+        /* Define CSS styles for the form */
+        form {
+            display: inline-block; /* Display form as inline block */
+            text-align: left; /* Align form elements to the left */
+        }
+        /* Define CSS styles for the button */
+        button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #ffb6c1; /* Set button background color */
+            color: #fff; /* Set text color to white */
+            border: none;
+            border-radius: 5px;
+        }
+        /* Style the button on hover */
+        button:hover {
+            background-color: #ff8080; /* Light pink color on hover */
+        }
+        /* Define CSS styles for the error and success messages */
+        .message {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .error-message {
+            color: red; /* Set error message color to red */
+        }
+        .success-message {
+            color: green; /* Set success message color to green */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create an account or Login!</h1>
+        {% if success_message %}
+            <p class="message success-message">{{ success_message }}</p>
+        {% endif %}
+        {% if error_message %}
+            <p class="message error-message">{{ error_message }}</p>
+        {% endif %}
+        <form action="/login" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

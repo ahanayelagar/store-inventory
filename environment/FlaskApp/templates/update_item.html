@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+    <style>
+        /* Define CSS styles for the pink strip */
+        .pink-strip {
+            background-color: #ffb6c1; /* Set baby pink background color */
+            color: #fff; /* Set text color to white */
+            padding: 20px 0; /* Add padding to the top and bottom */
+            margin-bottom: 20px; /* Add margin to separate from other content */
+            text-align: center; /* Center-align the content */
+        }
+
+        /* Define CSS styles for the heading */
+        .pink-strip h1 {
+            font-family: Arial, sans-serif; /* Change the font family */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Define CSS styles for the form */
+        form {
+            margin: 0 auto; /* Center-align the form */
+            width: 80%; /* Set the width of the form */
+        }
+
+        /* Define CSS styles for the button */
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #ffb6c1; /* Set baby pink background color */
+            color: #fff; /* Set text color to white */
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Style the button on hover */
+        .back-button:hover {
+            background-color: #ff8080; /* Light pink color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="pink-strip">
+        <h1>Update Item</h1>
+    </div>
+    {% if error_message %}
+    <p style="color: red; text-align: center;">{{ error_message }}</p>
+    {% endif %}
+    {% if success_message %}
+    <p style="color: green; text-align: center;">{{ success_message }}</p>
+    {% endif %}
+    <form action="/update" method="post">
+        <label for="old_description">Old Description:</label><br>
+        <input type="text" id="old_description" name="old_description"><br><br>
+        <label for="new_description">New Description:</label><br>
+        <input type="text" id="new_description" name="new_description"><br><br>
+        <label for="price">New Price:</label><br>
+        <input type="text" id="price" name="price"><br><br>
+        <label for="category_id">Category ID (Toys:1, Kitchen:2, Furniture:3):</label><br>
+        <input type="text" id="category_id" name="category_id"><br><br>
+        <button type="submit">Update</button>
+    </form>
+    <!-- Button to go back to the homepage -->
+    <a href="/homepage" class="back-button">Back to Homepage</a>
+</body>
+</html>
